@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
+    <meta charset="utf-8">
+    <title>The greatest news app ever</title>
+  </head>
+  <body>
+    <div class="container" id="app">
+      <section class="callout secondary">
+        <h5 class="text-center">Filter by Category</h5>
+        <form>
+          <div class="row">
+            <div class="large-12 columns">
+              <select v-model="section" v-on:change="getPosts">
+                <option v-for="section in sections" v-bind:value="section">{{ section }}</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </section>
+      <h3 class="text-center">VueNews</h3>
+      <news-list :results="results"></news-list>
+    </div>
+  </body>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="app.js"></script>
+</html>
